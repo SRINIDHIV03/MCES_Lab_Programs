@@ -1,0 +1,60 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,CODE
+    2 00000000                 ENTRY
+    3 00000000 E3A00004        MOV              R0, #4
+    4 00000004         
+    5 00000004 E0211001        EOR              R1,R1
+    6 00000008         
+    7 00000008 E1A00080        MOV              R0,R0,LSL #1
+    8 0000000C         
+    9 0000000C E2500001 
+                       L1      SUBS             R0, #1
+   10 00000010         
+   11 00000010 E2811001        ADD              R1,#1
+   12 00000014         
+   13 00000014 1AFFFFFC        BNE              L1
+   14 00000018 EAFFFFFE 
+                       STOP    B                STOP
+   15 0000001C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\practice.d -o.\objects\practice.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5
+\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --p
+redefine="__UVISION_VERSION SETA 528" --list=.\listings\practice.lst practice.a
+sm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+L1 0000000C
+
+Symbol: L1
+   Definitions
+      At line 9 in file practice.asm
+   Uses
+      At line 13 in file practice.asm
+Comment: L1 used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file practice.asm
+   Uses
+      None
+Comment: RESET unused
+STOP 00000018
+
+Symbol: STOP
+   Definitions
+      At line 14 in file practice.asm
+   Uses
+      At line 14 in file practice.asm
+Comment: STOP used once
+3 symbols
+335 symbols in table

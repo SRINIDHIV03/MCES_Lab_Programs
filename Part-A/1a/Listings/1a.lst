@@ -1,0 +1,45 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, CODE
+    2 00000000                 ENTRY
+    3 00000000 E3A00000        MOV              R0,#00      ; A
+    4 00000004 E3A01001        MOV              R1,#1       ; B
+    5 00000008 E3A02002        MOV              R2,#2       ; C
+    6 0000000C E3A03003        MOV              R3,#3       ; D
+    7 00000010 E0820001        ADD              R0,R2,R1
+    8 00000014 E0400003        SUB              R0,R0,R3
+    9 00000018 EAFFFFFE 
+                       STOP    B                STOP
+   10 0000001C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\1a.d -o.\objects\1a.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\I
+nclude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__
+UVISION_VERSION SETA 528" --list=.\listings\1a.lst 1a.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 1a.asm
+   Uses
+      None
+Comment: RESET unused
+STOP 00000018
+
+Symbol: STOP
+   Definitions
+      At line 9 in file 1a.asm
+   Uses
+      At line 9 in file 1a.asm
+Comment: STOP used once
+2 symbols
+334 symbols in table

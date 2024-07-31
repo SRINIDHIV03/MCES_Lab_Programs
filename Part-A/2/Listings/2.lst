@@ -1,0 +1,113 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,CODE
+    2 00000000                 ENTRY
+    3 00000000 E59F0034        LDR              R0,=DATA1
+    4 00000004 E3A03101        LDR              R3,=0X40000000 ; memory locatio
+                                                            n for storing answe
+                                                            r
+    5 00000008 E3A04005        MOV              R4,#05      ; //N- number of el
+                                                            ements
+    6 0000000C E4901004        LDR              R1,[R0],#04 ; assume first no. 
+                                                            as smaller no & inc
+                                                            rement R0 by 4
+    7 00000010 E2444001        SUB              R4,R4,#01   ; compare with n-1 
+                                                            elements
+    8 00000014         BACK
+    9 00000014 E5902000        LDR              R2,[R0]     ; get next number &
+                                                             compare with small
+                                                            
+   10 00000018 E1510002        CMP              R1,R2
+   11 0000001C 9A000000        BLS              LESS        ; // If R1 < R2 , B
+                                                            RANCH 
+   12 00000020 E1A01002        MOV              R1,R2       ; update with new s
+                                                            maller no
+   13 00000024         LESS
+   14 00000024 E2800004        ADD              R0, R0,#04  ; increment pointer
+                                                             to next number
+   15 00000028 E2444001        SUB              R4,R4,#01
+   16 0000002C E3540000        CMP              R4,#00
+   17 00000030 1AFFFFF7        BNE              BACK
+   18 00000034 E5831000        STR              R1, [R3]    ; // SMALLEST VALUE
+                                                             STORED IN MEMORY L
+                                                            OCATION
+   19 00000038 EAFFFFFE 
+                       STOP    B                STOP
+   20 0000003C 00000000        AREA             DATA,CODE
+   21 00000000 00000064 
+              00000005 
+              00000096 
+              00000010 
+              00000065 DATA1   DCD              &64,&05,&96,&10,&65
+   22 00000014                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\2.d -o.\objects\2.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Inc
+lude -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine="__UV
+ISION_VERSION SETA 528" --list=.\listings\2.lst 2.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BACK 00000014
+
+Symbol: BACK
+   Definitions
+      At line 8 in file 2.asm
+   Uses
+      At line 17 in file 2.asm
+Comment: BACK used once
+LESS 00000024
+
+Symbol: LESS
+   Definitions
+      At line 13 in file 2.asm
+   Uses
+      At line 11 in file 2.asm
+Comment: LESS used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 2.asm
+   Uses
+      None
+Comment: RESET unused
+STOP 00000038
+
+Symbol: STOP
+   Definitions
+      At line 19 in file 2.asm
+   Uses
+      At line 19 in file 2.asm
+Comment: STOP used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATA 00000000
+
+Symbol: DATA
+   Definitions
+      At line 20 in file 2.asm
+   Uses
+      None
+Comment: DATA unused
+DATA1 00000000
+
+Symbol: DATA1
+   Definitions
+      At line 21 in file 2.asm
+   Uses
+      At line 3 in file 2.asm
+Comment: DATA1 used once
+2 symbols
+340 symbols in table
